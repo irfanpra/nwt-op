@@ -1,4 +1,4 @@
-nwt-ot2
+nwt-op
 =======
 
-Repozitorij za projekat iz predmeta NWT grupe Omega Tim 2
+Repozitorij za projekat iz predmeta NWT grupe Omega Prime
