@@ -4,6 +4,8 @@ class CreateUserLogins < ActiveRecord::Migration
       t.string :username
       t.string :password
 
+      t.belongs_to :user_data
+
       t.timestamps
     end
   end

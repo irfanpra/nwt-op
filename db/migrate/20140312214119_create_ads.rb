@@ -11,6 +11,9 @@ class CreateAds < ActiveRecord::Migration
       t.integer :views_count
       t.datetime :date_last_edit
 
+      t.belongs_to :user_data
+      t.belongs_to :ad_type
+
       t.timestamps
     end
   end

@@ -5,5 +5,8 @@ class UserDatum < ActiveRecord::Base
   has_many :discussions
   has_many :reviews
   has_many :logs
+  has_many :subscriptions
+  has_many :ads
+
 
 end
