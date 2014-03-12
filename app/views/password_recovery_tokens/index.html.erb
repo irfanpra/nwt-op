@@ -1,0 +1,27 @@
+<h1>Listing password_recovery_tokens</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Token</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @password_recovery_tokens.each do |password_recovery_token| %>
+      <tr>
+        <td><%= password_recovery_token.token %></td>
+        <td><%= link_to 'Show', password_recovery_token %></td>
+        <td><%= link_to 'Edit', edit_password_recovery_token_path(password_recovery_token) %></td>
+        <td><%= link_to 'Destroy', password_recovery_token, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Password recovery token', new_password_recovery_token_path %>

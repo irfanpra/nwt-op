@@ -1,0 +1,2 @@
+module PasswordRecoveryTokensHelper
+end

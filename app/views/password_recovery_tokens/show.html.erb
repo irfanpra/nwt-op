@@ -1,0 +1,9 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Token:</strong>
+  <%= @password_recovery_token.token %>
+</p>
+
+<%= link_to 'Edit', edit_password_recovery_token_path(@password_recovery_token) %> |
+<%= link_to 'Back', password_recovery_tokens_path %>
