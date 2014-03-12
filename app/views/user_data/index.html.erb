@@ -1,0 +1,35 @@
+<h1>Listing user_data</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Contact</th>
+      <th>Email</th>
+      <th>Description</th>
+      <th>Is activated</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @user_data.each do |user_datum| %>
+      <tr>
+        <td><%= user_datum.name %></td>
+        <td><%= user_datum.contact %></td>
+        <td><%= user_datum.email %></td>
+        <td><%= user_datum.description %></td>
+        <td><%= user_datum.is_activated %></td>
+        <td><%= link_to 'Show', user_datum %></td>
+        <td><%= link_to 'Edit', edit_user_datum_path(user_datum) %></td>
+        <td><%= link_to 'Destroy', user_datum, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New User datum', new_user_datum_path %>
