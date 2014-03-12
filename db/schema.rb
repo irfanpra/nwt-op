@@ -34,8 +34,25 @@ ActiveRecord::Schema.define(version: 20140312214212) do
     t.datetime "updated_at"
   end
 
+  create_table "password_recovery_tokens", force: true do |t|
+    t.integer  "user_data_id"
+    t.string   "token"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "subscriptions", force: true do |t|
     t.datetime "date_subscribed"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "user_data", force: true do |t|
+    t.string   "name"
+    t.string   "contact"
+    t.string   "email"
+    t.text     "description"
+    t.boolean  "is_activated"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

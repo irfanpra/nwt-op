@@ -1,5 +1,7 @@
 NWTMarketinghub::Application.routes.draw do
   resources :user_logins
+  resources :password_recovery_tokens
+  resources :user_data
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
