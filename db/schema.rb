@@ -11,37 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140312205437) do
-
-  create_table "ad_types", force: true do |t|
-    t.string   "description"
-    t.string   "type"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "ads", force: true do |t|
-    t.string   "subtitle"
-    t.string   "title"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "subscriptions", force: true do |t|
-    t.datetime "date_subscribed"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+ActiveRecord::Schema.define(version: 20140312202036) do
 
   create_table "user_logins", force: true do |t|
     t.string   "username"
     t.string   "password"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "user_types", force: true do |t|
-    t.string   "type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

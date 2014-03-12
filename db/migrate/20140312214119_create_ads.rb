@@ -1,16 +1,16 @@
 class CreateAds < ActiveRecord::Migration
   def change
     create_table :ads do |t|
-      t.string :subtitle
       t.string :title
+      t.string :subtitle
       t.text :description
-      t.doble :price
+      t.float :price
       t.string :unit
       t.boolean :is_hidden
-      t.double :duration
-      t.datetime :date_start
-      t.datetime :date_end
+      t.float :duarion
       t.integer :views_count
+      t.datetime :date_last_edit
+
       t.timestamps
     end
   end

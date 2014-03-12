@@ -2,6 +2,8 @@
 
 one:
   type: 
+  description: MyText
 
 two:
   type: 
+  description: MyText

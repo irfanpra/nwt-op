@@ -1,8 +1,8 @@
 class CreateAdTypes < ActiveRecord::Migration
   def change
     create_table :ad_types do |t|
-      t.string :description 
       t.string :type
+      t.text :description
 
       t.timestamps
     end
