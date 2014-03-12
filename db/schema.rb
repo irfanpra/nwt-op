@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140312214212) do
+ActiveRecord::Schema.define(version: 20140312224511) do
 
   create_table "ad_types", force: true do |t|
     t.string   "type"
@@ -34,9 +34,40 @@ ActiveRecord::Schema.define(version: 20140312214212) do
     t.datetime "updated_at"
   end
 
+  create_table "attachments", force: true do |t|
+    t.string   "path"
+    t.integer  "ad_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "discussions", force: true do |t|
+    t.text     "content"
+    t.integer  "ad_id"
+    t.integer  "user_data_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "logs", force: true do |t|
+    t.text     "description"
+    t.integer  "user_data_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "password_recovery_tokens", force: true do |t|
     t.integer  "user_data_id"
     t.string   "token"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "reviews", force: true do |t|
+    t.integer  "rating"
+    t.text     "content"
+    t.integer  "ad_id"
+    t.integer  "user_data_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
