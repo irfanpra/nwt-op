@@ -84,6 +84,7 @@ ActiveRecord::Schema.define(version: 20140312224511) do
     t.string   "email"
     t.text     "description"
     t.boolean  "is_activated"
+    t.integer  "user_type_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

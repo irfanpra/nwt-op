@@ -7,6 +7,6 @@ class UserDatum < ActiveRecord::Base
   has_many :logs
   has_many :subscriptions
   has_many :ads
-
+  
 
 end
