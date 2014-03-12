@@ -1,4 +1,5 @@
 NWTMarketinghub::Application.routes.draw do
+  get "ads/index"
   resources :user_logins
 
   # The priority is based upon order of creation: first created -> highest priority.
