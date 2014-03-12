@@ -1,4 +1,5 @@
 NWTMarketinghub::Application.routes.draw do
+  get "ads/index"
   resources :user_logins
   resources :password_recovery_tokens
   resources :user_data

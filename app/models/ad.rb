@@ -1,4 +1,4 @@
 class Ad < ActiveRecord::Base
   has_one :ad_type
-  #belongs_to :user_data
+  belongs_to :user_datum
 end
