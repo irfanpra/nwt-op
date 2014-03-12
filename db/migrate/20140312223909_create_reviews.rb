@@ -1,7 +1,7 @@
 class CreateReviews < ActiveRecord::Migration
   def change
     create_table :reviews do |t|
-      t.int :rating
+      t.integer :rating
       t.text :content
 
       t.belongs_to :ad
