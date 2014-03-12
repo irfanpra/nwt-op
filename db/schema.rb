@@ -11,11 +11,44 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140312202036) do
+ActiveRecord::Schema.define(version: 20140312214212) do
+
+  create_table "ad_types", force: true do |t|
+    t.string   "type"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "ads", force: true do |t|
+    t.string   "title"
+    t.string   "subtitle"
+    t.text     "description"
+    t.float    "price"
+    t.string   "unit"
+    t.boolean  "is_hidden"
+    t.float    "duarion"
+    t.integer  "views_count"
+    t.datetime "date_last_edit"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "subscriptions", force: true do |t|
+    t.datetime "date_subscribed"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "user_logins", force: true do |t|
     t.string   "username"
     t.string   "password"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "user_types", force: true do |t|
+    t.string   "type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
