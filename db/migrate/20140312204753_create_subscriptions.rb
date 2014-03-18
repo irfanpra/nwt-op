@@ -3,8 +3,8 @@ class CreateSubscriptions < ActiveRecord::Migration
     create_table :subscriptions do |t|
       t.datetime :date_subscribed
 
-      t.belongs_to :user
-      t.belongs_to :user
+      t.integer :user_id
+      t.integer :user_id
 
       t.timestamps
     end

@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 20140318190328) do
   create_table "ad_boughts", force: true do |t|
     t.date     "date_start"
     t.integer  "duration"
+    t.integer  "ad_offer_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -31,6 +32,8 @@ ActiveRecord::Schema.define(version: 20140318190328) do
     t.boolean  "is_hidden"
     t.integer  "views_count"
     t.integer  "max_duration"
+    t.integer  "user_id"
+    t.integer  "ad_type_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -44,29 +47,29 @@ ActiveRecord::Schema.define(version: 20140318190328) do
 
   create_table "attachments", force: true do |t|
     t.string   "path"
-    t.integer  "ad_id"
+    t.integer  "ad_bought_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "discussions", force: true do |t|
     t.text     "content"
-    t.integer  "ad_id"
-    t.integer  "user_data_id"
+    t.integer  "ad_offer_id"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "logs", force: true do |t|
     t.text     "description"
-    t.integer  "user_data_id"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "password_recovery_tokens", force: true do |t|
-    t.integer  "user_data_id"
     t.string   "token"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -74,15 +77,15 @@ ActiveRecord::Schema.define(version: 20140318190328) do
   create_table "reviews", force: true do |t|
     t.integer  "rating"
     t.text     "content"
-    t.integer  "ad_id"
-    t.integer  "user_data_id"
+    t.integer  "ad_offer_id"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "subscriptions", force: true do |t|
     t.datetime "date_subscribed"
-    t.integer  "user_data_id"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -101,8 +104,7 @@ ActiveRecord::Schema.define(version: 20140318190328) do
     t.string   "email"
     t.text     "description"
     t.boolean  "is_activated"
-    t.integer  "user_type_id"
-    t.integer  "subscription_id"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

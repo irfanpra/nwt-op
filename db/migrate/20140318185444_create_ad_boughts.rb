@@ -4,7 +4,7 @@ class CreateAdBoughts < ActiveRecord::Migration
       t.date :date_start
       t.integer :duration
 
-      t.belongs_to :ad_offer
+      t.integer :ad_offer_id
 
       t.timestamps
     end

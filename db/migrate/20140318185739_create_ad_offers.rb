@@ -12,8 +12,8 @@ class CreateAdOffers < ActiveRecord::Migration
       t.integer :views_count
       t.integer :max_duration
 
-      t.belongs_to :user
-      t.belongs_to :ad_type
+      t.integer :user_id
+      t.integer :ad_type_id
 
 
       t.timestamps

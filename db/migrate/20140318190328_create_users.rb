@@ -9,9 +9,7 @@ class CreateUsers < ActiveRecord::Migration
       t.text :description
       t.boolean :is_activated
 
-      t.belongs_to :user
-
-      t.belongs_to :subscription
+      t.integer :user_id
 
 
       t.timestamps
