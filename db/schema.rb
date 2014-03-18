@@ -11,27 +11,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140312224511) do
+ActiveRecord::Schema.define(version: 20140318190328) do
 
-  create_table "ad_types", force: true do |t|
-    t.string   "type"
-    t.text     "description"
+  create_table "ad_boughts", force: true do |t|
+    t.date     "date_start"
+    t.integer  "duration"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "ads", force: true do |t|
+  create_table "ad_offers", force: true do |t|
     t.string   "title"
     t.string   "subtitle"
     t.text     "description"
-    t.float    "price"
+    t.decimal  "price",        precision: 10, scale: 0
     t.string   "unit"
+    t.datetime "date_start"
+    t.datetime "date_end"
     t.boolean  "is_hidden"
-    t.float    "duarion"
     t.integer  "views_count"
-    t.datetime "date_last_edit"
-    t.integer  "user_data_id"
-    t.integer  "ad_type_id"
+    t.integer  "max_duration"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "ad_types", force: true do |t|
+    t.string   "type"
+    t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -81,27 +87,22 @@ ActiveRecord::Schema.define(version: 20140312224511) do
     t.datetime "updated_at"
   end
 
-  create_table "user_data", force: true do |t|
+  create_table "user_types", force: true do |t|
+    t.string   "type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "users", force: true do |t|
+    t.string   "username"
+    t.string   "password"
     t.string   "name"
     t.string   "contact"
     t.string   "email"
     t.text     "description"
     t.boolean  "is_activated"
     t.integer  "user_type_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "user_logins", force: true do |t|
-    t.string   "username"
-    t.string   "password"
-    t.integer  "user_data_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "user_types", force: true do |t|
-    t.string   "type"
+    t.integer  "subscription_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

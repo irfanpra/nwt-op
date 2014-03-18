@@ -9,7 +9,7 @@ class CreateAdOffers < ActiveRecord::Migration
       t.datetime :date_start
       t.datetime :date_end
       t.boolean :is_hidden
-      t.int :views_count
+      t.integer :views_count
       t.integer :max_duration
 
       t.timestamps

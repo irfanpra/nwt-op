@@ -3,8 +3,6 @@ NWTMarketinghub::Application.routes.draw do
   resources :users
 
   get "ads/index"
-  resources :user_logins
-  resources :user_data
   resources :password_recovery_tokens
   wash_out :rumbas
   # The priority is based upon order of creation: first created -> highest priority.
