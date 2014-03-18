@@ -1,4 +1,4 @@
 class Review < ActiveRecord::Base
-  belongs_to :user_data
-  belongs_to :ad
+  belongs_to :user
+  belongs_to :ad_offer
 end

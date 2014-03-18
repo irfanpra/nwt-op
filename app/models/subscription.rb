@@ -1,4 +1,4 @@
 class Subscription < ActiveRecord::Base
-  belongs_to :user_datum
-  has_many :user_datas
+  belongs_to :user
+  belongs_to :user
 end

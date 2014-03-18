@@ -1,3 +1,3 @@
 class UserType < ActiveRecord::Base
-  has_many :user_datums
+  has_many :users
 end
