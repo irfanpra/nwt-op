@@ -9,7 +9,7 @@ class CreateUsers < ActiveRecord::Migration
       t.text :description
       t.boolean :is_activated
 
-      t.integer :user_types_id
+      t.integer :user_type_id
 
       t.timestamps
     end
