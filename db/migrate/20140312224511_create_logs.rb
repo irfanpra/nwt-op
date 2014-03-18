@@ -3,7 +3,7 @@ class CreateLogs < ActiveRecord::Migration
     create_table :logs do |t|
       t.text :description
 
-      t.belongs_to :user_data
+      t.belongs_to :user
 
       t.timestamps
     end

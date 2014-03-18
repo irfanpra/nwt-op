@@ -9,7 +9,7 @@ class CreateUsers < ActiveRecord::Migration
       t.text :description
       t.boolean :is_activated
 
-      t.belongs_to :user_type
+      t.belongs_to :user
 
       t.belongs_to :subscription
 

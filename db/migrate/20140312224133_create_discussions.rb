@@ -3,8 +3,8 @@ class CreateDiscussions < ActiveRecord::Migration
     create_table :discussions do |t|
       t.text :content
 
-      t.belongs_to :ad
-      t.belongs_to :user_data
+      t.belongs_to :ad_offer
+      t.belongs_to :user
 
       t.timestamps
     end

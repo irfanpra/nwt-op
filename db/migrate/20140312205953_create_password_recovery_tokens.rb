@@ -1,7 +1,7 @@
 class CreatePasswordRecoveryTokens < ActiveRecord::Migration
   def self.up
     create_table :password_recovery_tokens do |t|
-      t.belongs_to :user_data
+      t.belongs_to :user
       t.string :token
 
       t.timestamps
