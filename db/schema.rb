@@ -30,6 +30,8 @@ ActiveRecord::Schema.define(version: 20140312224511) do
     t.float    "duarion"
     t.integer  "views_count"
     t.datetime "date_last_edit"
+    t.integer  "user_data_id"
+    t.integer  "ad_type_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -74,6 +76,7 @@ ActiveRecord::Schema.define(version: 20140312224511) do
 
   create_table "subscriptions", force: true do |t|
     t.datetime "date_subscribed"
+    t.integer  "user_data_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -92,6 +95,7 @@ ActiveRecord::Schema.define(version: 20140312224511) do
   create_table "user_logins", force: true do |t|
     t.string   "username"
     t.string   "password"
+    t.integer  "user_data_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

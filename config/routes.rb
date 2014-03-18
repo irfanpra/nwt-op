@@ -1,5 +1,7 @@
 NWTMarketinghub::Application.routes.draw do
   
+  resources :users
+
   get "ads/index"
   resources :user_logins
   resources :user_data
