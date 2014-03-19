@@ -32,9 +32,19 @@ NWTMarketinghub::Application.routes.draw do
   get 'attachment/getall', to: 'attachment#getall'
   get 'attachment/get', to: 'attachment#get'
 
-  #post 'user/login', to: 'users/login'
+  post 'user/create', to: 'users#create'
+  post 'users/create', to: 'users#create'
+  post 'user/login', to: 'users#login'
+  post 'user/edit', to: 'users#edit'
+  post 'user/reset', to: 'users#reset'
   get 'user/all', to: 'users#all'
   get 'user/get/(:id)', to: 'users#get'
+  get 'user/logout', to: 'users#logout'
+
+
+  get 'subscription/list/(:id)', to: 'subscription#list'
+  get 'subscription/delete/(:id)', to: 'subscription#delete'
+
 
 
   wash_out :rumbas

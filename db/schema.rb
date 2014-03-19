@@ -86,6 +86,7 @@ ActiveRecord::Schema.define(version: 20140318190328) do
   create_table "subscriptions", force: true do |t|
     t.datetime "date_subscribed"
     t.integer  "user_id"
+    t.integer  "user_sub_to_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
