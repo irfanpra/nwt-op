@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
+
   # GET /users
   # GET /users.json
   def index
@@ -19,6 +20,25 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
+  end
+
+  def get
+    @user = User.where(id: params[:id]).first
+    respond_to do |format|
+      format.json {
+
+        if @user.nil?
+          render :json => {:error => "true", :message => "Navedeni korisnik ne postoji."}
+        else
+          render :json => @user
+        end
+      }
+    end
+  end
+
+  def all
+    @users = User.all
+    render json: @users
   end
 
   # POST /users

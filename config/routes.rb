@@ -22,7 +22,12 @@ NWTMarketinghub::Application.routes.draw do
   post 'attachment/delete', to: 'attachment#delete'
   get 'attachment/getall', to: 'attachment#getall'
   get 'attachment/get', to: 'attachment#get'
-  
+
+  #post 'user/login', to: 'users/login'
+  get 'user/all', to: 'users#all'
+  get 'user/get/(:id)', to: 'users#get'
+
+
   wash_out :rumbas
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
