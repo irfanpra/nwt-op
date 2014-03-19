@@ -14,7 +14,7 @@
 ActiveRecord::Schema.define(version: 20140318190328) do
 
   create_table "ad_boughts", force: true do |t|
-    t.date     "date_start"
+    t.datetime "date_start"
     t.integer  "duration"
     t.integer  "ad_offer_id"
     t.datetime "created_at"
@@ -104,7 +104,7 @@ ActiveRecord::Schema.define(version: 20140318190328) do
     t.string   "email"
     t.text     "description"
     t.boolean  "is_activated"
-    t.integer  "user_id"
+    t.integer  "user_type_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
