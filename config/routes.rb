@@ -4,6 +4,12 @@ NWTMarketinghub::Application.routes.draw do
 
   get "ads/index"
   resources :password_recovery_tokens
+  #resources :review
+  post 'review/add', to: 'review#add'
+  post 'review/update', to: 'review#update'
+  post 'review/delete', to: 'review#delete'
+  get 'review/getall', to: 'review#getall'
+  get 'review/get', to: 'review#get'
   wash_out :rumbas
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
