@@ -19,4 +19,6 @@ class CreateAdOffers < ActiveRecord::Migration
       t.timestamps
     end
   end
+
+
 end

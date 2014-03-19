@@ -8,5 +8,10 @@ class User < ActiveRecord::Base
   has_many :reviews
   has_many :logs
   belongs_to :user_type
-  
+
+
+  def self.search(query)
+    where("name LIKE ?", "%#{query}%")
+  end
+
 end

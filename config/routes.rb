@@ -1,8 +1,17 @@
 NWTMarketinghub::Application.routes.draw do
   
-  resources :users
+  get "ad/create", to: 'ad#create'
+  get "ad/update", to: 'ad#update'
+  get "ad/delete", to: 'ad#delete'
+  get "ad/buy", to: 'ad#buy'
+
+  get 'search/users', :to => 'search#users'
+  get 'search/ads', :to => 'search#ads'
+
 
   get "ads/index"
+
+  resources :users
   resources :password_recovery_tokens
   #resources :review
   post 'review/add', to: 'review#add'
