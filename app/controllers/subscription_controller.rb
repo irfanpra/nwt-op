@@ -13,6 +13,7 @@ class SubscriptionController < ApplicationController
         render :status => :method_not_allowed, :nothing => true
         return
       }
+    end
 
   end
 
