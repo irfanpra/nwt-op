@@ -10,6 +10,13 @@ NWTMarketinghub::Application.routes.draw do
   post 'review/delete', to: 'review#delete'
   get 'review/getall', to: 'review#getall'
   get 'review/get', to: 'review#get'
+  
+  post 'discussion/add', to: 'discussion#add'
+  post 'discussion/update', to: 'discussion#update'
+  post 'discussion/delete', to: 'discussion#delete'
+  get 'discussion/getall', to: 'discussion#getall'
+  get 'discussion/get', to: 'discussion#get'
+  
   wash_out :rumbas
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
