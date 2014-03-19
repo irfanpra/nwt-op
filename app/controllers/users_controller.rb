@@ -1,6 +1,22 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:edit, :update, :destroy]
 
+  # GET /users
+  # GET /users.json
+  def index
+    @users = User.all
+  end
+
+  # GET /users/1
+  # GET /users/1.json
+  def show
+  end
+
+  # GET /users/new
+  def new
+    @user = User.new
+  end
+
   def all
     @users = User.all
     render json: @users
@@ -33,7 +49,7 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
-    @user = User.new(id: 22, username: "almir")
+    @user = User.new(user_params)
 
     respond_to do |format|
       if @user.save
