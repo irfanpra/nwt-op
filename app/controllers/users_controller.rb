@@ -1,6 +1,26 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:edit, :update, :destroy]
+  def login
 
+  end
+
+  def login
+    username = params[:username]
+    password = params[:password]
+
+    user = User.where(username: username, password: password).first unless username.nil? or password.nil?
+
+    format.json {
+      if user.nil?
+        render :json => { :error => true, :message => "Neispravni pristupni podaci."}
+        return
+      else
+        render :json => user
+        return
+      end
+    }
+    render :nothing => true
+  end
 
   # GET /users
   # GET /users.json

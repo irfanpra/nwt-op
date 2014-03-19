@@ -42,6 +42,7 @@ NWTMarketinghub::Application.routes.draw do
   get 'user/logout', to: 'users#logout'
 
 
+  post 'subscription/add', to: 'subscription#add'
   get 'subscription/list/(:id)', to: 'subscription#list'
   get 'subscription/delete/(:id)', to: 'subscription#delete'
 

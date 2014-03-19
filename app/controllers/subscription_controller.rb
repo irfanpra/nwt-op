@@ -2,6 +2,17 @@ class SubscriptionController < ApplicationController
   protect_from_forgery :except => [:add, :delete, :list]
 
   def add
+    #@subs = Subscription.where(id: params[:id]).first
+    sub = Subscription.new
+    sub.id = params[:id]
+    sub.date_subscribed = params[:date_subscribed]
+    sub.user_id = params[:user_id]
+    sub.user_sub_to_id = params[:user_sub_to_id]
+    if (sub.valid?)
+      sub.save()
+      msg = { :status => "ok", :message => "Success!", :html => "<b>Dodano</b>" }
+      render :json => msg
+    end
 
   end
 
@@ -29,4 +40,6 @@ class SubscriptionController < ApplicationController
         }
       end
     end
+
+
   end
