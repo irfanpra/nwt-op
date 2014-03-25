@@ -1,4 +1,3 @@
 <p id="notice"><%= notice %></p>
-<p><b><%=@user.username%></b><b><%=@user.username%></b><b><%=@user.contact%></b><b><%=@user.description%></b></p>
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<p><b>Korisnik: <%= session[:user_name] %></b></p>
+<p><b>Pravi: <%= @user.username %></b></p>

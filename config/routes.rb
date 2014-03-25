@@ -1,15 +1,16 @@
 NWTMarketinghub::Application.routes.draw do
+  root :controller => 'home_page', :action => :index
   
-  get "ad/create", to: 'ad#create'
-  get "ad/update", to: 'ad#update'
-  get "ad/delete", to: 'ad#delete'
-  get "ad/buy", to: 'ad#buy'
+  get 'ad/create', to: 'ad#create'
+  get 'ad/update', to: 'ad#update'
+  get 'ad/delete', to: 'ad#delete'
+  get 'ad/buy', to: 'ad#buy'
 
   get 'search/users', :to => 'search#users'
   get 'search/ads', :to => 'search#ads'
 
 
-  get "ads/index"
+  get 'ads/index'
 
   resources :users
   resources :password_recovery_tokens

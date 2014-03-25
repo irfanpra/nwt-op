@@ -1,0 +1,17 @@
+<div class="header" style="float: right">
+    <% if session[:user_id] == nil  %>
+        <%= form_tag({controller: "users", action: "login"}, method: "post", class: "formclass") do %>
+        <%= label_tag("Username:") %>
+        <%= text_field_tag :username %>
+        <%= label_tag("Password:") %>
+        <%= password_field_tag :password %>
+        <%= submit_tag("Login") %>
+        <% end %>
+
+    <% else  %>
+        <%= form_tag({controller: "users", action: "logout"}, method: "get", class: "formclass") do %>
+        Korisnik: <%= session[:user_name] %>
+        <%= submit_tag("Logout") %>
+        <% end %>
+    <% end %>
+</div>

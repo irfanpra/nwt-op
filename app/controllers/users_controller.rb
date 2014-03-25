@@ -3,19 +3,19 @@ class UsersController < ApplicationController
 
 
   def login
-    username = params[:username]
-    password = params[:password]
+    if @user = User.authenticate(params[:username], params[:password])
+      session[:user_id] = @user.id
+      session[:user_name] = @user.username
+      redirect_to root_path
+    else
+      redirect_to root_path, :alert => "Invalid user/password combination"
+    end
+  end
 
-    #@user = User.where(username: username, password: password).first
-
-    render :json => {:error => username }
-      #if user.nil?
-      #  render :json => { :error => true, :message => "Neispravni pristupni podaci."}
-      #  return
-      #else
-      #  render :json => @user
-      #  return
-      #end
+  def logout
+    session[:user_id] = nil
+    session[:user_name] = nil
+    redirect_to root_path, :notice => "Logged out"
   end
 
   # GET /users
@@ -40,14 +40,7 @@ class UsersController < ApplicationController
     render json: @users
   end
 
-  def logout
-    reset_session
-  end
 
-  def login
-
-
-  end
 
   def get
     @user = User.where(id: params[:id]).first
