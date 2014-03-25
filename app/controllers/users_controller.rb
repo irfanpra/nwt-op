@@ -6,16 +6,37 @@ class UsersController < ApplicationController
     if @user = User.authenticate(params[:username], params[:password])
       session[:user_id] = @user.id
       session[:user_name] = @user.username
-      redirect_to root_path
+
+      respond_to do |format|
+        format.json {
+        }
+        format.html {
+          redirect_to root_path, :notice => "Logged in"
+        }
+      end
     else
-      redirect_to root_path, :alert => "Invalid user/password combination"
+      respond_to do |format|
+        format.json {
+          render :json => {:error => "true", :message => "Navedeni korisnik ne postoji."}
+        }
+        format.html {
+          redirect_to root_path, :alert => "Invalid user/password combination"
+        }
+      end
     end
   end
 
   def logout
     session[:user_id] = nil
     session[:user_name] = nil
-    redirect_to root_path, :notice => "Logged out"
+
+    respond_to do |format|
+      format.json {
+      }
+      format.html {
+        redirect_to root_path, :notice => "Logged out"
+      }
+    end
   end
 
   # GET /users
