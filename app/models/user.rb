@@ -26,7 +26,9 @@ class User < ActiveRecord::Base
   # ===== VALIDACIJE =====
 
 
-  # 'password' is a virtual attribute
+  # 'password' - virtualni atribut
+  # jer se u modelu nalazi hashed_password, ovaj atribut konvertuje plain password u hashovani
+  # i spašava hashovani u model
   def password=(password)
     if password.present?
       generate_salt
@@ -39,23 +41,27 @@ class User < ActiveRecord::Base
     where("name LIKE ?", "%#{query}%")
   end
 
+  # Funkcija vraća hash vrijednost za zadati pass i salt
   def User.encrypt_password(password, salt)
     Digest::SHA2.hexdigest(password + "emir" + salt)
   end
 
+
+  # Funkacija koja za zadati username i pass vraća korisnika
+  # ukoliko ne postoji korisnik vraća se nil
   def User.authenticate(username, password)
-    logger.debug "Pocela pretraga"
     if user = User.where(:username => username).first
-      logger.debug "Username postoji #{user.username}"
       if user.hashed_password == encrypt_password(password, user.salt)
-        logger.debug "Password dobar"
         user
       end
     end
   end
 
+
+
   private
 
+  # generise salt na osnovu id objekta i random broja
   def generate_salt
     self.salt = self.object_id.to_s + rand.to_s
   end
