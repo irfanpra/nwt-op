@@ -10,6 +10,22 @@ class User < ActiveRecord::Base
   belongs_to :user_type
 
 
+  # ===== VALIDACIJE =====
+  validates :password, length: { in: 5..20 }
+  validates :username, length: { in: 4..20 }
+  validates :name, length: { maximum: 50 }
+  validates :contact, length: { maximum: 100 }
+  validates :email, length: { maximum: 70 }
+  validates :description, length: { maximum: 10000 }
+
+  validates :username, :hashed_password, :salt, :name, presence: true
+
+  validates :email, uniqueness: true
+  validates :username, uniqueness: true
+
+  # ===== VALIDACIJE =====
+
+
   # 'password' is a virtual attribute
   def password=(password)
     if password.present?

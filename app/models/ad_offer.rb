@@ -5,6 +5,20 @@ class AdOffer < ActiveRecord::Base
   belongs_to :user
   belongs_to :ad_type
 
+  # ===== VALIDACIJE =====
+  validates :title, length: { in: 4..50 }
+  validates :subtitle, length: { maximum: 200 }
+  validates :description, length: { maximum: 10000 }
+  validates :unit, length: { maximum: 15 }
+
+  validates :price, numericality: true
+  validates :views_count, numericality: { only_integer: true }
+  validates :max_duration, numericality: { only_integer: true }
+
+  validates :title, :price, :unit, :date_start, :date_end, :is_hidden, :max_duration, presence: true
+
+  # ===== VALIDACIJE =====
+
   def self.search(keyword, type, price)
     query = ""
     if keyword
