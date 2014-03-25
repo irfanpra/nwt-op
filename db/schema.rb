@@ -39,8 +39,7 @@ ActiveRecord::Schema.define(version: 20140318190328) do
   end
 
   create_table "ad_types", force: true do |t|
-    t.string   "type"
-    t.text     "description"
+    t.string   "ad_type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -92,7 +91,7 @@ ActiveRecord::Schema.define(version: 20140318190328) do
   end
 
   create_table "user_types", force: true do |t|
-    t.string   "type"
+    t.string   "user_type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
