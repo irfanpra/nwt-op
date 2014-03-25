@@ -1,4 +1,8 @@
 class User < ActiveRecord::Base
+  before_save :encrypt_password
+  after_save :clear_password
+  attr_accessor :password
+  
   has_one :password_recovery_token
   has_one :subscription
   has_many :ad_offers
@@ -11,30 +15,28 @@ class User < ActiveRecord::Base
 
 
   # ===== VALIDACIJE =====
-  validates :password, length: { in: 5..20 }
+  validates :password, length: { in: 5..20 }, :on => :create
   validates :username, length: { in: 4..20 }
   validates :name, length: { maximum: 50 }
   validates :contact, length: { maximum: 100 }
   validates :email, length: { maximum: 70 }
   validates :description, length: { maximum: 10000 }
 
-  validates :username, :hashed_password, :salt, :name, presence: true
+  validates :username, :name, presence: true
 
   validates :email, uniqueness: true
   validates :username, uniqueness: true
+  
+  validates :password, confirmation: true
 
   # ===== VALIDACIJE =====
 
 
   # 'password' is a virtual attribute
-  def password=(password)
-    if password.present?
-      generate_salt
-      self.hashed_password = self.class.encrypt_password(password, self.salt)
-    end
-  end
 
+  
 
+  
   def self.search(query)
     where("name LIKE ?", "%#{query}%")
   end
@@ -59,6 +61,15 @@ class User < ActiveRecord::Base
   def generate_salt
     self.salt = self.object_id.to_s + rand.to_s
   end
+ def encrypt_password
+    if password.present?
+      generate_salt
+      self.hashed_password = self.class.encrypt_password(password, self.salt)
+    end
+  end
 
+  def clear_password
+    self.password = nil
+  end
 
 end
