@@ -1,11 +1,11 @@
 class User < ActiveRecord::Base
-  has_one :password_recovery_token
-  has_one :subscription
-  has_many :ad_offers
-  has_many :ad_boughts
-  has_many :subscriptions
-  has_many :discussions
-  has_many :reviews
+  has_one :password_recovery_token, :dependent => :destroy
+  has_one :subscription, :dependent => :destroy
+  has_many :ad_offers, :dependent => :destroy
+  has_many :ad_boughts, :dependent => :destroy
+  has_many :subscriptions, :dependent => :destroy
+  has_many :discussions, :dependent => :destroy
+  has_many :reviews, :dependent => :destroy
   has_many :logs
   belongs_to :user_type
 

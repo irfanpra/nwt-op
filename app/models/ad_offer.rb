@@ -1,7 +1,7 @@
 class AdOffer < ActiveRecord::Base
-  has_many :ad_boughts
-  has_many :reviews
-  has_many :discussions
+  has_many :ad_boughts, :dependent => :destroy
+  has_many :reviews, :dependent => :destroy
+  has_many :discussions, :dependent => :destroy
   belongs_to :user
   belongs_to :ad_type
 
