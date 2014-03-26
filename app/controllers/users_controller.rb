@@ -1,6 +1,9 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:edit, :update, :destroy]
 
+  def login_get
+
+  end
 
   def login
     if @user = User.authenticate(params[:username], params[:password])
