@@ -25,10 +25,31 @@ Subscription.create([{date_subscribed: Date.today.to_s, user_id: 1, user_sub_to_
                      {date_subscribed: Date.today.to_s, user_id: 7, user_sub_to_id:4}
                     ])
 
+Discussion.create([{content: "Extra!", ad_offer_id: 1, user_id: 6},
+                   {content: "Super!", ad_offer_id: 1, user_id: 7},
+                   {content: "Ovo je dobro", ad_offer_id: 2, user_id: 6},
+                   {content: "Ovo ne navalja nista", ad_offer_id: 2, user_id: 7},
+                   {content: "Daj dzaba", ad_offer_id: 3, user_id: 6}
+                  ])
+
+Review.create([{content: "Extra!", rating: 3, ad_offer_id: 1, user_id: 1},
+                   {content: "Super!", rating: 3, ad_offer_id: 1, user_id: 2},
+                   {content: "Ovo je dobro", rating: 3, ad_offer_id: 2, user_id: 3},
+                   {content: "Ovo ne navalja nista", rating: 3, ad_offer_id: 2, user_id: 4},
+                   {content: "Daj dzaba", rating: 3, ad_offer_id: 3, user_id: 5}
+                  ])
+
+AdBought.create([{date_start: Date.today.to_s, duration: 30, ad_offer_id: 1, user_id: 1},
+               {date_start: Date.today.to_s, duration: 30, ad_offer_id: 1, user_id: 2},
+               {date_start: Date.today.to_s,duration: 30, ad_offer_id: 2, user_id: 3},
+               {date_start: Date.today.to_s,duration: 30, ad_offer_id: 2, user_id: 4},
+               {date_start: Date.today.to_s,duration: 30, ad_offer_id: 3, user_id: 5}
+              ])
+
 AdOffer.create([{title: 'Reklama TV', subtitle: 'Najjeftinije na planeti', description: 'Primetime reklama na TV Amna', price: 50.23, unit: 'min', date_start: Date.today.to_s, date_end: (Date.today + 10).to_s, is_hidden: 0, views_count: 0,max_duration:2, user_id: 4, ad_type_id: 1},
-                {title: 'Reklama Radio', subtitle: 'Najjeftinije u eteru', description: 'Na radiju Kameleon', price: 20.00, unit: 'min', date_start: Date.today.to_s, date_end: (Date.today + 10).to_s, is_hidden: 0,views_count:0, user_id: 4,max_duration:2, ad_type_id: 2},
+                {title: 'Reklama Radio', subtitle: 'Najjeftinije u eteru', description: 'Na radiju Kameleon', price: 20.00, unit: 'min', date_start: Date.today.to_s, date_end: (Date.today + 10).to_s, is_hidden: 0,views_count:0, user_id: 4, max_duration:2, ad_type_id: 2},
                 {title: 'Reklama TV Druga', subtitle: 'Najjeftinije na planeti 2', description: 'Primetime reklama na TV Kiseljak', price: 12.45, unit: 'min', date_start: Date.today.to_s, date_end: (Date.today + 10).to_s, is_hidden: 0,views_count:0,max_duration:2, user_id: 4, ad_type_id: 1},
                 {title: 'Reklama Radio Druga', subtitle: 'Najjeftinije u eteru 2', description: 'Na radiju Istocno Sarajevo', price: 20.23, unit: 'min', date_start: Date.today.to_s, date_end: (Date.today + 10).to_s, is_hidden: 0,views_count:0,max_duration:2, user_id: 4, ad_type_id: 2},
-                {title: 'Reklama Novine', subtitle: 'Najjeftinije na papiru', description: 'Kod Fahre', price: 0.25, unit: 'duz', date_start: Date.today.to_s, date_end: (Date.today + 10).to_s, is_hidden: 0,views_count:0,max_duration:2, user_id: 4, ad_type_id: 3},
-                {title: 'Reklama Plakat', subtitle: 'Najjeftinije po slici', description: 'Europlakat', price: 1.00, unit: 'sat', date_start: Date.today.to_s, date_end: (Date.today + 10).to_s, is_hidden: 0,views_count:0, max_duration:2, user_id: 4, ad_type_id: 4}
+                {title: 'Reklama Novine', subtitle: 'Najjeftinije na papiru', description: 'Kod Fahre', price: 2.25, unit: 'duz', date_start: Date.today.to_s, date_end: (Date.today + 10).to_s, is_hidden: 0,views_count:0,max_duration:2, user_id: 4, ad_type_id: 3},
+                {title: 'Reklama Plakat', subtitle: 'Najjeftinije po slici', description: 'Europlakat', price: 4.00, unit: 'sat', date_start: Date.today.to_s, date_end: (Date.today + 10).to_s, is_hidden: 0,views_count:0, max_duration:2, user_id: 4, ad_type_id: 4}
                ])

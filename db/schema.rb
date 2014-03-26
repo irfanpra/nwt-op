@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 20140318190328) do
     t.datetime "date_start"
     t.integer  "duration"
     t.integer  "ad_offer_id"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
