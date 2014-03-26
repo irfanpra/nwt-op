@@ -20,15 +20,15 @@
     </div>
     <div class="field">
       <%= f.label :password %>
-      <%= f.text_field :password %>
+      <%= f.password_field :password %>
     </div>
     <div class="field">
       <%= f.label :password_confirmation%>
-      <%= f.text_field :password_confirmation%>
+      <%= f.password_field :password_confirmation%>
     </div>
     <div class="field">
       <%= f.label :contact %>
-      <%= f.text_field :contact %>
+      <%= f.text_area :contact %>
     </div>
     <div class="field">
       <%= f.label :email %>
@@ -36,9 +36,9 @@
     </div>
     <div class="field">
       <%= f.label :description %>
-      <%= f.text_field :description %>
+      <%= f.text_area :description %>
     </div>
     <div class="actions">
-      <%= f.submit class:"btn" %>
+      <%= f.submit "Kreiraj korisnika", class:"btn" %>
     </div>
 <% end %>
