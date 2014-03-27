@@ -1,5 +1,6 @@
 class SubscriptionController < ApplicationController
   protect_from_forgery :except => [:add, :delete, :list]
+  before_filter :is_logged
 
   def add
     #@subs = Subscription.where(id: params[:id]).first

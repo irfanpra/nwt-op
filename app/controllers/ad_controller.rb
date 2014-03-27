@@ -1,4 +1,5 @@
 class AdController < ApplicationController
+  before_filter :is_logged
 
   def create
     newAd = AdOffer.create

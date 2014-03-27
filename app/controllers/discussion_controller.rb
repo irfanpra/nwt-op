@@ -1,4 +1,5 @@
 class DiscussionController < ApplicationController
+  before_filter :is_logged
   protect_from_forgery :except => [:add, :update, :delete]
   def add
     respond_to do |format|

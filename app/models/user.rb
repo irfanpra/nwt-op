@@ -34,9 +34,8 @@ class User < ActiveRecord::Base
 
   # 'password' is a virtual attribute
 
-  
 
-  
+
   def self.search(query)
     where("name LIKE ?", "%#{query}%")
   end
