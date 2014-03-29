@@ -1,9 +1,9 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:edit, :update, :destroy]
+  before_filter :is_logged, :except => [:login, :new, :create]
 
-  def login_get
 
-  end
+
 
   def login
     if @user = User.authenticate(params[:username], params[:password])
