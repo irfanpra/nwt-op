@@ -3,6 +3,8 @@
   <!-- Main hero unit for a primary marketing message or call to action -->
   <div class="hero-unit">
     <p id="notice"><%= notice %></p>
+    <%= image_tag(@user.avatar_url) if @user.avatar? %>
+    <br>
     <p><b><%=@user.name%></b></p>
     <p><b><%=@user.username%></b></p>
     <p><b><%=@user.contact%></b></p>

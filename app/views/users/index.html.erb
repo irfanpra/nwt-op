@@ -17,6 +17,7 @@
   <tbody class="table table-condensed">
     <% @users.each do |user| %>
       <tr>
+      	<td><%= image_tag(user.avatar_url) if user.avatar? %></td>
         <td><%= user.name %></td>
         <td><%= link_to 'Edit', edit_user_path(user), class: "btn btn-sm btn-primary" %></td>
         <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-danger" %></td>
