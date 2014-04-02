@@ -1,6 +1,9 @@
 class PasswordRecoveryTokensController < ApplicationController
   before_action :set_password_recovery_token, only: [:show, :edit, :update, :destroy]
 
+  def pwd_recovery
+    UserMailer.welcome_email().deliver
+  end
 
   # GET /password_recovery_tokens
   # GET /password_recovery_tokens.json

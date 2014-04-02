@@ -26,4 +26,16 @@ NWTMarketinghub::Application.configure do
   # This option may cause significant delays in view rendering with a large
   # number of complex assets.
   config.assets.debug = true
+
+  Rails.application.routes.default_url_options[:host] = 'localhost:3000'
+
+  ActionMailer::Base.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+      address:              'smtp.gmail.com',
+      port:                 587,
+      domain:               'gmail.com',
+      user_name:            'nwtmhub',
+      password:             'mhubpass123',
+      authentication:       'plain',
+      enable_starttls_auto: true  }
 end

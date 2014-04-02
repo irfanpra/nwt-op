@@ -4,8 +4,8 @@ class UsersController < ApplicationController
 
 
 
-
   def login
+
     if @user = User.authenticate(params[:username], params[:password])
       session[:user_id] = @user.id
       session[:user_name] = @user.username

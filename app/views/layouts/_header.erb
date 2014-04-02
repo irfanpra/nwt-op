@@ -19,6 +19,7 @@
               <input class="span2" type="password" name="password" placeholder="Password">
               <button type="submit" class="btn">Prijava</button>
               <%= link_to "Registracija", new_user_path, :class => "btn", 'data-no-turbolink' => true %>
+              <%= link_to "Zaboravljena lozinka", gpwd_recovery_path %>
             </form>
 
         <% else %>

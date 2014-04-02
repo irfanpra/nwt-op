@@ -1,6 +1,6 @@
 NWTMarketinghub::Application.routes.draw do
   root :controller => 'home_page', :action => :index
-  
+
   get 'ad/create', to: 'ad#create'
   get 'ad/update', to: 'ad#update'
   get 'ad/delete', to: 'ad#delete'
@@ -14,6 +14,7 @@ NWTMarketinghub::Application.routes.draw do
 
   resources :users
   resources :password_recovery_tokens
+
   #resources :review
   post 'review/add', to: 'review#add'
   post 'review/update', to: 'review#update'
@@ -41,6 +42,7 @@ NWTMarketinghub::Application.routes.draw do
   get 'user/all', to: 'users#all'
   get 'user/get/(:id)', to: 'users#get'
   get 'user/logout', to: 'users#logout'
+  get 'user/recovery', to: 'password_recovery_tokens#pwd_recovery', :as => :pwd_recovery
 
 
   post 'subscription/add', to: 'subscription#add'
