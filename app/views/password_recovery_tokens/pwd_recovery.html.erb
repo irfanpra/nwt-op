@@ -1,10 +1,26 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title></title>
-</head>
-<body>
-<p>Hellou doublin</p>
+<div class="container">
+  <!-- Main hero unit for a primary marketing message or call to action -->
+  <div class="hero-unit">
+    <h3>Povratak zaboravljene lozinke</h3>
+    <%= form_tag pwd_recovery_post_path, :method => :post do %>
+        <table align="left">
+          <tr>
+            <td style="text-align: right;">
+              <p>Korisnička e-mail adresa:</p>
+            </td>
+            <td>
+              <%= text_field_tag :request_reset_email %>
+            </td>
+          </tr>
 
-</body>
-</html>
+          <tr>
+            <td colspan="3" style="text-align: right;">
+              <%= submit_tag "Pošalji" %>
+            </td>
+          </tr>
+        </table>
+    <% end %>
+
+  </div>
+  </div>
+</div>

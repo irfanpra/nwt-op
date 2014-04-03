@@ -2,7 +2,60 @@ class PasswordRecoveryTokensController < ApplicationController
   before_action :set_password_recovery_token, only: [:show, :edit, :update, :destroy]
 
   def pwd_recovery
-    UserMailer.welcome_email().deliver
+    respond_to do |format|
+      format.html
+      format.json { render :nothing => true }
+    end
+  end
+
+  def pwd_recovery_post
+    user_email = params[:request_reset_email]
+    user = User.where(email: user_email).first
+    respond_to do |format|
+      format.html{
+        if user.nil?
+          redirect_to pwd_recovery_path
+          return
+        else
+          @prt =  PasswordRecoveryToken.where(user_id: user.id).first
+
+          if @prt.nil?
+            # user never requested token before, create a new one for him
+            @prt =  PasswordRecoveryToken.new
+            @prt.user = user
+            @prt.token = Digest::SHA2.hexdigest("leno")
+            if @prt.valid?
+              @prt.save
+              UserMailer.password_recovery(user, @prt).deliver
+            else
+              redirect_to index_path
+              return
+            end
+          else
+            # user already requested token, check if it's too old
+            if (Time.now - @prt.updated_at) > 1.hour
+              # token is older than 1 hour, update prt with new token
+              @prt.token = Digest::SHA2.hexdigest(user.updated_at + Date.today)
+              if @prt.valid?
+                @prt.save
+                UserMailer.password_recovery(user, @prt).deliver
+              else
+                redirect_to index_path
+                return
+              end
+            else
+              flash[:error] = 'Vec ste poslali jedan zahtjev za zaboravljenu lozinku u proteklih sat vremena, provjerite Vas postanski sanducic ili pokusajte malo kasnije...'
+              redirect_to pwd_recovery_path
+              return
+            end
+          end
+        end
+      }
+    end
+  end
+
+  def pwd_recovery_confirm
+
   end
 
   # GET /password_recovery_tokens
