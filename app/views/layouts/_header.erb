@@ -32,7 +32,7 @@
 
         <div class="btn-group">
           <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-            <%= session[:locale].upcase %> <span class="caret"></span>
+            <%= I18n.locale.upcase %> <span class="caret"></span>
           </button>
           <ul class="dropdown-menu" role="menu">
             <li><a href="?locale=bs#">BS</a></li>
