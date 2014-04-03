@@ -33,7 +33,7 @@ class SubscriptionController < ApplicationController
       respond_to do |format|
         format.json {
           if user.nil?
-            render :json => {:error => "true", :message => "Navedeni korisnik ne postoji."}
+            render :json => {:error => "true", :message => (t "user.does_not_exist")}
           else
             user_subs = Subscription.where(user_id: user.id)
             render :json => user_subs

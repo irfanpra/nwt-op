@@ -14,16 +14,16 @@ class UsersController < ApplicationController
         format.json {
         }
         format.html {
-          redirect_to root_path, :notice => "Logged in"
+          redirect_to root_path, :notice => (t "user.logged_in_successfully")
         }
       end
     else
       respond_to do |format|
         format.json {
-          render :json => {:error => "true", :message => "Navedeni korisnik ne postoji."}
+          render :json => {:error => "true", :message => (t "user.does_not_exist")}
         }
         format.html {
-          redirect_to root_path, :alert => "Invalid user/password combination"
+          redirect_to root_path, :alert => (t "user.invalid_login_params")
         }
       end
     end
@@ -37,7 +37,7 @@ class UsersController < ApplicationController
       format.json {
       }
       format.html {
-        redirect_to root_path, :notice => "Logged out"
+        redirect_to root_path, :notice => (t "user.logged_out_successfully")
       }
     end
   end
@@ -71,7 +71,7 @@ class UsersController < ApplicationController
     respond_to do |format|
       format.json {
         if @user.nil?
-          render :json => {:error => "true", :message => "Navedeni korisnik ne postoji."}
+          render :json => {:error => "true", :message => (t "user.does_not_exist")}
         else
           render :json => @user
         end
@@ -89,7 +89,7 @@ class UsersController < ApplicationController
 
       respond_to do |format|
         if @user.save
-          format.html { redirect_to @user, notice: 'User was successfully created.' }
+          format.html { redirect_to @user, notice: (t "user.succesfully_created") }
           format.json { render action: 'show', status: :created, location: @user }
         else
           format.html { render action: 'new' }
@@ -98,7 +98,7 @@ class UsersController < ApplicationController
       end
     else
       respond_to do |format|
-        format.html { redirect_to new_user_path, notice: "Unesite pravilno polja!" }
+        format.html { redirect_to new_user_path, notice: (t user.invalid_fields) }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
@@ -112,7 +112,7 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
+        format.html { redirect_to @user, notice: (t "user.succesfully_updated") }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

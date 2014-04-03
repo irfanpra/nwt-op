@@ -32,7 +32,7 @@ class PasswordRecoveryTokensController < ApplicationController
 
     respond_to do |format|
       if @password_recovery_token.save
-        format.html { redirect_to @password_recovery_token, notice: 'Password recovery token was successfully created.' }
+        format.html { redirect_to @password_recovery_token, notice: (t "password_recovery.successfully_created") }
         format.json { render action: 'show', status: :created, location: @password_recovery_token }
       else
         format.html { render action: 'new' }
@@ -46,7 +46,7 @@ class PasswordRecoveryTokensController < ApplicationController
   def update
     respond_to do |format|
       if @password_recovery_token.update(password_recovery_token_params)
-        format.html { redirect_to @password_recovery_token, notice: 'Password recovery token was successfully updated.' }
+        format.html { redirect_to @password_recovery_token, notice: (t "password_recovery.successfully_updated") }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

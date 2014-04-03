@@ -9,7 +9,7 @@ UserType.create([{user_type: 'administrator'},{user_type: 'klijent'},{user_type:
 
 AdType.create([{ad_type: 'tv'},{ad_type: 'radio'},{ad_type: 'novine'},{ad_type: 'plakat'},{ad_type: 'pano'},{ad_type: 'mobilna'}])
 
-User.create([{username: 'Emir', hashed_password: 'emir1', password: "klixovaca", salt: '1', name: 'Emir Ahmetovic', email:'emir@gmail.com', is_activated: 1, user_type_id:1 },
+User.create([{username: 'emir', hashed_password: 'emir1', password: "emir", salt: '1', name: 'Emir Ahmetovic', email:'emir@gmail.com', is_activated: 1, user_type_id:1 },
              {username: 'Irfan', hashed_password: 'irfo1',password: "klixovaca", salt: '2', name: 'Irfan Prazina', email:'irfo@gmail.com', is_activated: 1, user_type_id:1 },
              {username: 'Alen', hashed_password: 'leno1', password: "klixovaca",salt: '3', name: 'Alen Hadzic', email:'leno@gmail.com', is_activated: 1, user_type_id:1 },
              {username: 'Kemo', hashed_password: 'kemulator1', password: "klixovaca", salt: '4', name: 'Kemo Kemica', email:'kemulator@gmail.com', is_activated: 1, user_type_id: 3 },
