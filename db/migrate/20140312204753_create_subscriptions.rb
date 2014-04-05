@@ -4,7 +4,7 @@ class CreateSubscriptions < ActiveRecord::Migration
       t.datetime :date_subscribed
 
       t.integer :user_id
-      t.integer :user_id
+      t.integer :user_sub_to_id
 
       t.timestamps
     end

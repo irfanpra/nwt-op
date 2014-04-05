@@ -1,18 +1,20 @@
 NWTMarketinghub::Application.routes.draw do
-  
-  get "ad/create", to: 'ad#create'
-  get "ad/update", to: 'ad#update'
-  get "ad/delete", to: 'ad#delete'
-  get "ad/buy", to: 'ad#buy'
+  root :controller => 'home_page', :action => :index
+
+  get 'ad/create', to: 'ad#create'
+  get 'ad/update', to: 'ad#update'
+  get 'ad/delete', to: 'ad#delete'
+  get 'ad/buy', to: 'ad#buy'
 
   get 'search/users', :to => 'search#users'
   get 'search/ads', :to => 'search#ads'
 
 
-  get "ads/index"
+  get 'ads/index'
 
   resources :users
   resources :password_recovery_tokens
+
   #resources :review
   post 'review/add', to: 'review#add'
   post 'review/update', to: 'review#update'
@@ -32,9 +34,27 @@ NWTMarketinghub::Application.routes.draw do
   get 'attachment/getall', to: 'attachment#getall'
   get 'attachment/get', to: 'attachment#get'
 
-  #post 'user/login', to: 'users/login'
+  post 'user/create', to: 'users#create'
+  post 'users/create', to: 'users#create'
+  post 'user/login', to: 'users#login'
+  post 'user/edit', to: 'users#edit'
+  post 'user/reset', to: 'users#reset'
   get 'user/all', to: 'users#all'
   get 'user/get/(:id)', to: 'users#get'
+  get 'user/logout', to: 'users#logout'
+  get 'user/activate/:act_hash', to: 'users#activation', :as => :activation
+
+  get 'user/recovery', to: 'password_recovery_tokens#pwd_recovery', :as => :pwd_recovery
+  post 'user/recovery', to: 'password_recovery_tokens#pwd_recovery_post', :as => :pwd_recovery_post
+  get 'user/recovery/:reset_hash', to:'password_recovery_tokens#pwd_recovery_confirm', :as => :pwd_recovery_confirm
+
+
+
+
+  post 'subscription/add', to: 'subscription#add'
+  get 'subscription/list/(:id)', to: 'subscription#list'
+  get 'subscription/delete/(:id)', to: 'subscription#delete'
+
 
 
   wash_out :rumbas

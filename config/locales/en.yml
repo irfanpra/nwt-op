@@ -21,3 +21,22 @@
 
 en:
   hello: "Hello world"
+
+  nav:
+    forgotten_pass: Forgot password?
+  user:
+      username: Username
+      password: Password
+      not_logged_in: You are not logged in.
+      does_not_have_permission: You do not have permision for that action.
+      logged_in_successfully: You have successfully logged in.
+      logged_out_successfully: You have successfully logged out.
+      does_not_exist: User does not exist.
+      invalid_login_params: Invalid username or password.
+      succesfully_created: User was successfully created.
+      succesfully_updated: User was successfully updated.
+      invalid_fields: Some fields are invalid.
+
+  password_recovery:
+      successfully_created: 'Password recovery token was successfully created.'
+      successfully_updated: 'Password recovery token was successfully updated.'

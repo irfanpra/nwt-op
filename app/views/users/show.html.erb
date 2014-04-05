@@ -1,4 +1,15 @@
-<p id="notice"><%= notice %></p>
-<p><b><%=@user.name%></b><b><%=@user.username%></b><b><%=@user.contact%></b><b><%=@user.description%></b></p>
+<div class="container">
+
+  <!-- Main hero unit for a primary marketing message or call to action -->
+  <div class="hero-unit">
+    <p id="notice"><%= notice %></p>
+    <%= image_tag(@user.avatar_url) if @user.avatar? %>
+    <br>
+    <p><b><%=@user.name%></b></p>
+    <p><b><%=@user.username%></b></p>
+    <p><b><%=@user.contact%></b></p>
+    <p><b><%=@user.description%></b></p>
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
+      </div>
+    </div>

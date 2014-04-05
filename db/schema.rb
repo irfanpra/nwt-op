@@ -11,12 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140318190328) do
+ActiveRecord::Schema.define(version: 20140402173925) do
 
   create_table "ad_boughts", force: true do |t|
     t.datetime "date_start"
     t.integer  "duration"
     t.integer  "ad_offer_id"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -39,8 +40,7 @@ ActiveRecord::Schema.define(version: 20140318190328) do
   end
 
   create_table "ad_types", force: true do |t|
-    t.string   "type"
-    t.text     "description"
+    t.string   "ad_type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -86,19 +86,21 @@ ActiveRecord::Schema.define(version: 20140318190328) do
   create_table "subscriptions", force: true do |t|
     t.datetime "date_subscribed"
     t.integer  "user_id"
+    t.integer  "user_sub_to_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "user_types", force: true do |t|
-    t.string   "type"
+    t.string   "user_type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "users", force: true do |t|
     t.string   "username"
-    t.string   "password"
+    t.string   "hashed_password"
+    t.string   "salt"
     t.string   "name"
     t.string   "contact"
     t.string   "email"
@@ -107,6 +109,7 @@ ActiveRecord::Schema.define(version: 20140318190328) do
     t.integer  "user_type_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "avatar"
   end
 
 end

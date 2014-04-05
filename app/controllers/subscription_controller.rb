@@ -1,27 +1,46 @@
 class SubscriptionController < ApplicationController
-  #protect_from_forgery :except => [:create, :delete, :list]
-  def create
-    respond_to do |format|
-      format.json {
-        attachmentN = Sub.create(attachment_params)
-        #attachmentN.user_id = 1 # POPRAVITI  da radi kada se user loginuje
-        attachmentN.save
-        msg = { :status => "ok", :message => "Success!", :html => attachmentN}
-        render :json => msg
-      }
-      format.html {
-        render :status => :method_not_allowed, :nothing => true
-        return
-      }
+  protect_from_forgery :except => [:add, :delete, :list]
+  before_filter :is_logged
+
+  def add
+    #@subs = Subscription.where(id: params[:id]).first
+    sub = Subscription.new
+    sub.id = params[:id]
+    sub.date_subscribed = params[:date_subscribed]
+    sub.user_id = params[:user_id]
+    sub.user_sub_to_id = params[:user_sub_to_id]
+    if (sub.valid?)
+      sub.save()
+      msg = { :status => "ok", :message => "Success!", :html => "<b>Dodano</b>" }
+      render :json => msg
     end
 
   end
 
-  def delete
+    def delete
+      respond_to do |format|
+        format.json {
+          Subscription.destroy(params[:id])
+          msg = { :status => "ok", :message => "Success!", :html => "<b>Obrisano</b>" }
+          render :json => msg
+        }
+      end
+
+    end
+
+    def list
+      user = User.where(id: params[:id]).first
+      respond_to do |format|
+        format.json {
+          if user.nil?
+            render :json => {:error => "true", :message => (t "user.does_not_exist")}
+          else
+            user_subs = Subscription.where(user_id: user.id)
+            render :json => user_subs
+          end
+        }
+      end
+    end
+
 
   end
-
-  def list
-
-  end
-end

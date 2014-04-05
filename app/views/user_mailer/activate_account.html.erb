@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <title>Aktivacija korisnickog naloga</title>
+</head>
+<body>
+<h2>Aktivacija korisnickog naloga</h2>
+<p>
+  Postovani,<br/>
+  poslali ste zahtjev za registraciju naloga na portalu mHub. Ukoliko vi niste poslali zahtjev ignorišite ovu poruku.<br/>
+  <br/>
+  Da potvrdite registraciju naloga pratite <%= link_to 'ovaj link', activation_url(act_hash: @user.hashed_password) %>
+
+  <br/>
+  Nakon što posjetite link vas nalog ce biti spreman za koristenje.
+</p>
+</body>
+</html>

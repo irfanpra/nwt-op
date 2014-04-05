@@ -5,6 +5,7 @@ class CreateAdBoughts < ActiveRecord::Migration
       t.integer :duration
 
       t.integer :ad_offer_id
+      t.integer :user_id
 
       t.timestamps
     end
