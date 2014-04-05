@@ -42,9 +42,12 @@ NWTMarketinghub::Application.routes.draw do
   get 'user/all', to: 'users#all'
   get 'user/get/(:id)', to: 'users#get'
   get 'user/logout', to: 'users#logout'
+  get 'user/activate/:act_hash', to: 'users#activation', :as => :activation
+
   get 'user/recovery', to: 'password_recovery_tokens#pwd_recovery', :as => :pwd_recovery
   post 'user/recovery', to: 'password_recovery_tokens#pwd_recovery_post', :as => :pwd_recovery_post
-  get "user/recovery/:reset_hash", to:'password_recovery_tokens#pwd_recovery_confirm', :as => :pwd_recovery_confirm
+  get 'user/recovery/:reset_hash', to:'password_recovery_tokens#pwd_recovery_confirm', :as => :pwd_recovery_confirm
+
 
 
 

@@ -1,8 +1,21 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:edit, :update, :destroy]
-  before_filter :is_logged, :except => [:login, :new, :create]
+  before_filter :is_logged, :except => [:login, :new, :create, :activation]
+
+  def activation
+    act_hash = params[:act_hash]
+    user = User.where(hashed_password: act_hash ).first
+
+    if user.nil?
+      redirect_to root_path, :notice => (t "Korisnik ne postoji.")
+    else
+      user.is_activated = 1
+      user.save
+      redirect_to root_path, :notice => (t "Korisnik je aktiviran")
+    end
 
 
+  end
 
   def login
 
@@ -86,9 +99,12 @@ class UsersController < ApplicationController
    def create
     if verify_recaptcha
       @user = User.new(user_params)
+      @user.is_activated = 0
+
 
       respond_to do |format|
         if @user.save
+          UserMailer.activate_account(@user).deliver
           format.html { redirect_to @user, notice: (t "user.succesfully_created") }
           format.json { render action: 'show', status: :created, location: @user }
         else
